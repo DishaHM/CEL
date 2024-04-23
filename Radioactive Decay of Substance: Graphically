@@ -1,0 +1,24 @@
+% Parameters and initial conditions for radioactive exponential decay 
+lambda = 0.1;   % Decay constant
+N0 = 1000;      % Initial number of particles
+t0 = 0;         % Initial time
+tf = 10;        % Final time
+h = 0.01;       % Time step
+N = (tf-t0)/h;  % Number of time steps
+
+t = linspace(t0,tf,N+1);
+Nt = zeros(1,N+1);
+Nt(1) = N0;
+
+% Forward Euler method
+for i = 1:N
+    Nt(i+1) = Nt(i) - h*lambda*Nt(i);
+end
+
+% Plot solution
+plot(t,Nt)
+xlabel('Time')
+ylabel('Number of particles')
+title('Radioactive decay')
+
+
