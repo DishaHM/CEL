@@ -1,0 +1,20 @@
+clc; clear all;
+%Giving input parameters
+x = linspace(-5, 5, 1000);
+y1 = x.^2;
+y2 = x.^3;
+y3 = exp(x);
+y4 = sin(x).*cos(x);
+% Plotting graph 
+figure;
+plot (x, y1);
+hold on;
+plot (x, y2);
+hold on;
+plot (x, y3);
+hold on;
+plot (x, y4);
+legend('x^2','x^3','e^x','sin(x)*cos(x)');
+xlabel('x-axis')
+ylabel('y-axis')
+title('Assignment-2')
