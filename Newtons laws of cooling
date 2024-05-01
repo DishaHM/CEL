@@ -1,0 +1,20 @@
+% Constants
+ambient_temp = 20; % Room temperature (°C)
+initial_temp = 70; % Starting temperature of the coffee (°C)
+cooling_rate = 0.019; % How fast the coffee cools down (per minute)
+time_span = [0, 20]; % Time interval to calculate (from 0 to 20 minutes)
+step_size = 2; % How often we check the temperature (every 2 minutes)
+
+% Start with the initial temperature
+coffee_temp = initial_temp;
+
+% Calculate temperature using Euler's method
+time_points = 0:2:20;
+temperature_points = zeros(size(time_points));
+temperature_points(1) = initial_temp;
+
+for i = 2:length(time_points)
+    % Calculate the new temperature based on the rate of cooling
+    coffee_temp = coffee_temp + step_size * (-cooling_rate * (coffee_temp - ambient_temp));
+    temperature_points(i) = coffee_temp;
+end
